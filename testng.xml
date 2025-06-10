@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test Suite">
+
+    <test name="Functional Test Cases">
+        <classes>
+            <class name="tests.HomeTest"/>
+            <class name="tests.ContactTest"/>
+            <class name="tests.ShopTest"/>
+        </classes>
+    </test>
+</suite>
