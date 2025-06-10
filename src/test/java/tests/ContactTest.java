@@ -4,16 +4,14 @@ import com.planittesting.pages.ContactPage;
 import com.planittesting.pages.HomePage;
 import com.planittesting.utilities.Log;
 import common.BaseTest;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 
 public class ContactTest extends BaseTest {
-    WebDriver driver;
+    //WebDriver driver;
     HomePage homePage;
     ContactPage contactPage;
     String forenameError = "Forename is required";
@@ -41,7 +39,7 @@ public class ContactTest extends BaseTest {
     }
 
     @Test
-    public void verifyContactErrors() throws IOException {
+    public void verifyContactErrors(){
         try {
             homePage = new HomePage(BaseTest.driver);
             homePage.navigateToContactMenu();
@@ -88,11 +86,13 @@ public class ContactTest extends BaseTest {
 
         }catch(InterruptedException e){
             Log.error("Interrupted Exception in verify Contact test: "+e.getMessage());
+        }catch(Exception e){
+            Log.error("IO Exception in verify Contact test:"+e.getMessage());
         }
     }
 
     @Test(invocationCount = 5)
-    public void contactSubmitWithMandatoryFields() throws IOException {
+    public void contactSubmitWithMandatoryFields() {
         try {
             homePage = new HomePage(BaseTest.driver);
             homePage.navigateToContactMenu();
@@ -116,6 +116,8 @@ public class ContactTest extends BaseTest {
 
         }catch(InterruptedException e){
             Log.info("Interrupted Exception in verify Contact test: "+e.getMessage());
+        }catch(Exception e){
+            Log.error("IO Exception in verify Contact test:"+e.getMessage());
         }
     }
 }

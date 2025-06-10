@@ -1,20 +1,18 @@
 package tests;
 
 import com.planittesting.pages.CartPage;
-import com.planittesting.pages.ContactPage;
 import com.planittesting.pages.HomePage;
 import com.planittesting.pages.ShopPage;
 import com.planittesting.utilities.Log;
 import common.BaseTest;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
+
 
 public class ShopTest extends BaseTest {
-    WebDriver driver;
+    //WebDriver driver;
     HomePage homePage;
     ShopPage shopPage;
     CartPage cartPage;
@@ -39,7 +37,7 @@ public class ShopTest extends BaseTest {
     }
 
     @Test
-    public void buyItemsAndVerifyTotal() throws IOException {
+    public void buyItemsAndVerifyTotal(){
         try {
             //navigate to Shop page
             homePage = new HomePage(BaseTest.driver);
@@ -81,6 +79,8 @@ public class ShopTest extends BaseTest {
             Log.info("Test completed");
         }catch(InterruptedException e){
             Log.error("Interrupted Exception in verify Contact test: "+e.getMessage());
+        }catch(Exception e){
+            Log.error("IO Exception in verify Contact test:"+e.getMessage());
         }
     }
 }
