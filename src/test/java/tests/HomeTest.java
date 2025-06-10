@@ -30,8 +30,9 @@ public class HomeTest extends BaseTest {
     @Test
     public void verifyHomePageDetails() throws IOException{
         homePage = new HomePage(BaseTest.driver);
-        String HomeHeader = homePage.getHomePageHeader();
-        Assert.assertEquals(HomeHeader,homePageTitle);
+        String homeHeader = homePage.getHomePageHeader();
+        Log.info("----- Home header read as: -----"+homeHeader);
+        Assert.assertEquals(homeHeader,homePageTitle);
     }
 
 }
